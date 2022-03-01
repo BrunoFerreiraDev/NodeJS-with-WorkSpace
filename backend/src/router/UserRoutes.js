@@ -1,35 +1,30 @@
-const express = require('express');
+import express from 'express'
 
-const UserController = require('../controller/UserController')
+import UserController from '../controller/UserController.js'
+
+const userController = new UserController()
 
 const router = express.Router()
 
+//metodo login
+router.post('/api/login', userController.login)
+
 //metodo get all
-router.get('/api/user', (request, response) => {
-    UserController.getOne()
-})
+router.get('/api/users/:id', userController.getOne)
 
 
 //metodo get by id
-router.get("/api/user/:id", (request, response) => {
-    UserController.index()
-});
+router.get("/api/users/", userController.index);
 
 //metodo post by id
-router.post("/api/user", (request, response) => {
-    UserController.store()
-});
+router.post("/api/users", userController.store);
 
 
 //metodo update by id
-router.patch('/api/user/:id', (request, response) => {
-    UserController.update()
-})
+router.put('/api/users/:id', userController.update)
 
 
 //metodo delete by id
-router.delete('/api/user/:id', (request, response) => {
-    UserController.remove()
-});
+router.delete('/api/users/:id', userController.remove);
 
-module.exports = router
+export default router
