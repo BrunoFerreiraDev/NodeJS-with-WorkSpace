@@ -1,7 +1,6 @@
 {
   "name": "packages",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/BrunoFerreiraDev/shortner.git",
   "author": "BrunoFerreiraDev <brunoferreirasmv@gmail.com>",
   "license": "MIT",
