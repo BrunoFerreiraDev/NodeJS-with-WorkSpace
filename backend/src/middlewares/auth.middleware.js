@@ -21,7 +21,9 @@ export const AuthMiddleware = (request, response, next) => {//posso exporta dire
     const [, token] = authorization.split(" ")
 
     try {
-        const user = jsonwebtoken.verify(token, JWT_SECRET)
+        const payload = jsonwebtoken.verify(token, JWT_SECRET)
+
+        request.loggedUser = payload;//compartilhando informações atraves do contexto pelo request
     } catch (error) {
         return response.status(401).json({ message: "Token Invalid" })
     }

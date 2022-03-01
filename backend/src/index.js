@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
+import ShortnerController from "./controller/ShortnerController.js"
 import UserRouter from "./router/UserRoutes.js"
 import ShortnerRouter from "./router/ShortnerRoutes.js"
 import { AuthMiddleware } from './middlewares/auth.middleware.js'
@@ -12,6 +13,8 @@ import { AuthMiddleware } from './middlewares/auth.middleware.js'
 
 const DATABASE_URL = process.env.DATABASE_URL
 const port = process.env.PORT
+
+const shortnerController = new ShortnerController()
 
 mongoose.connect(DATABASE_URL)
     .then(() => console.log("data base conected..."))
@@ -23,6 +26,8 @@ app.use(express.json())
 //meddleware...
 app.use(morgan("dev"))
 
+app.get("/", (request, response) => response.json({ message: "Shortner..." }))
+app.get("/:hash", shortnerController.redirect)
 app.use(AuthMiddleware)
 
 app.use(UserRouter)

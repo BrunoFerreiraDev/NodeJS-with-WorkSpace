@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
 
 const ShortnerSchema = new mongoose.Schema({
-    link: { tyoe: String, required: true },
-    hash: { tyoe: String, required: true },
-    hits: { tyoe: Number, default: 0 },
-    metadadata: [
+    link: { type: String, required: true },
+    hash: { type: String, required: true, unique: true },
+    hits: { type: Number, default: 0 },
+    metadata: [
         mongoose.SchemaTypes.Mixed
     ],
-    ownerId: { type: mongoose.SchemaType.ObjectId, ref: 'user' }
+    ownerId: { type: mongoose.SchemaTypes.ObjectId, ref: 'user' }
 }, {
-    timestamps: true
+    timestamps: true,
 })
 
 const ShortnerModel = mongoose.model("shortner", ShortnerSchema)
 
-export default ShortnerSchema
+export default ShortnerModel
