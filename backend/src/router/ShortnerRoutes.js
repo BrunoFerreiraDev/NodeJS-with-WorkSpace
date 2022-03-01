@@ -20,6 +20,8 @@ router.post("/api/shortner", shortnerController.store);
 //metodo update by id
 router.put('/api/shortner/:id', shortnerController.update)
 
+router.patch('/api/shortner/:id', shortnerController.update)
+
 
 //metodo delete by id
 router.delete('/api/shortner/:id', shortnerController.remove);
