@@ -28,5 +28,4 @@ app.use(AuthMiddleware)
 app.use(UserRouter)
 app.use(ShortnerRouter)
 
-
 app.listen(port, () => console.log(`Servidor ativo na porta ${port}`))
