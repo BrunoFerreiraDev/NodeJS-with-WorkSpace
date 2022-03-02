@@ -5,6 +5,9 @@
   "author": "BrunoFerreiraDev <brunoferreirasmv@gmail.com>",
   "license": "MIT",
   "private":true,
+  "devDependencies": {
+    "@monorepo/eslint-config-node": "*"
+  },
   "workspaces":{
     "packages": [
       "packages/*"

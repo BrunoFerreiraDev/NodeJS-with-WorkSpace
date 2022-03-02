@@ -1,29 +1,26 @@
-import express from 'express'
+import express from 'express';
 
-import ShortnerController from '../controller/ShortnerController.js'
+import ShortnerController from '../controller/ShortnerController.js';
 
-const shortnerController = new ShortnerController()
+const shortnerController = new ShortnerController();
 
-const router = express.Router()
+const router = express.Router();
 
-//metodo get all
-router.get('/api/shortner/:id', shortnerController.getOne)
+// metodo get all
+router.get('/api/shortner/:id', shortnerController.getOne);
 
+// metodo get by id
+router.get('/api/shortner/', shortnerController.index);
 
-//metodo get by id
-router.get("/api/shortner/", shortnerController.index);
+// metodo post by id
+router.post('/api/shortner', shortnerController.store);
 
-//metodo post by id
-router.post("/api/shortner", shortnerController.store);
+// metodo update by id
+router.put('/api/shortner/:id', shortnerController.update);
 
+router.patch('/api/shortner/:id', shortnerController.update);
 
-//metodo update by id
-router.put('/api/shortner/:id', shortnerController.update)
-
-router.patch('/api/shortner/:id', shortnerController.update)
-
-
-//metodo delete by id
+// metodo delete by id
 router.delete('/api/shortner/:id', shortnerController.remove);
 
-export default router
+export default router;

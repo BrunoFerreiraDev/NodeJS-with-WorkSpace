@@ -1,30 +1,27 @@
-import express from 'express'
+import express from 'express';
 
-import UserController from '../controller/UserController.js'
+import UserController from '../controller/UserController.js';
 
-const userController = new UserController()
+const userController = new UserController();
 
-const router = express.Router()
+const router = express.Router();
 
-//metodo login
-router.post('/api/login', userController.login)
+// metodo login
+router.post('/api/login', userController.login);
 
-//metodo get all
-router.get('/api/users/:id', userController.getOne)
+// metodo get all
+router.get('/api/users/:id', userController.getOne);
 
+// metodo get by id
+router.get('/api/users/', userController.index);
 
-//metodo get by id
-router.get("/api/users/", userController.index);
+// metodo post by id
+router.post('/api/users', userController.store);
 
-//metodo post by id
-router.post("/api/users", userController.store);
+// metodo update by id
+router.put('/api/users/:id', userController.update);
 
-
-//metodo update by id
-router.put('/api/users/:id', userController.update)
-
-
-//metodo delete by id
+// metodo delete by id
 router.delete('/api/users/:id', userController.remove);
 
-export default router
+export default router;
