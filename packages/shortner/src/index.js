@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import ShortnerController from './controller/ShortnerController.js';
 import UserRouter from './router/UserRoutes.js';
 import ShortnerRouter from './router/ShortnerRoutes.js';
-import { AuthMiddleware } from './middlewares/auth.middleware.js';
+import AuthMiddleware from './middlewares/auth.middleware.js';
 
 dotenv.config();
 

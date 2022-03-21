@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -70,16 +73,16 @@ model Session {
 }
 
 model Movie {
-  id               String           @id @default(uuid())
-  name             String
-  description      String
-  duration         Int
-  director         String
-  parentalGuidance ParentalGuidance @default(GENERAL_AUDIENCE)
-  thumbnail        String?
-  rating           Float
-  languages        String[]
-  Session          Session[]
+  id                String           @id @default(uuid())
+  name              String
+  description       String
+  duration          Int
+  director          String
+  parental_guidance ParentalGuidance @default(GENERAL_AUDIENCE)
+  thumbnail         String?
+  rating            Float
+  languages         String[]
+  Session           Session[]
 }
 
 model Ticket {

@@ -4,6 +4,7 @@
   "repository": "https://github.com/BrunoFerreiraDev/shortner.git",
   "author": "BrunoFerreiraDev <brunoferreirasmv@gmail.com>",
   "license": "MIT",
+  "type": "commonjs",
   "private":true,
   "devDependencies": {
     "@monorepo/eslint-config-node": "*"

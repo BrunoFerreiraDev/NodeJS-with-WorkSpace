@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import bcryptjs from 'bcryptjs';
 import jsonwebtoken from 'jsonwebtoken';
 
@@ -18,7 +19,7 @@ const hashPassword = (password) => {
 class UserController {
   // get
   async getOne(request, response) {
-    const { id } = request?.params;
+    const { id } = request.params;
 
     try {
       const user = await UserModel.findById(id);
@@ -54,7 +55,6 @@ class UserController {
     if (!bcryptjs.compareSync(password, user.password)) {
       return response.status(404).json({ message: 'Password Invalid' });
     }
-
     const token = jsonwebtoken.sign({
       id: user._id,
       name: user.name,
